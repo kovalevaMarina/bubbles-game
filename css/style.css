@@ -1,0 +1,21 @@
+*, html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* .bubble {
+  box-shadow: inset 0 0 10px #ffffff, 
+    inset -10px 10px 15px #06f3df, 
+    inset 5px 5px 10px #f8e63e, 
+    inset -5px 5px 20px #ffffff,
+    inset 15px -25px 20px #ed24aa;
+} */
+
+.bubble {
+  box-shadow: inset 0 0 10px #ffffff, 
+    inset -10px 10px 15px #100dee, 
+    inset 5px 5px 10px #f7a120, 
+    inset -5px 5px 20px #ffffff,
+    inset 15px -25px 20px #ed24c1;
+}
