@@ -5,16 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bubbles game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;800&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <script defer src="./js/Bubble.js"></script>
     <script defer src="./js/ControlBubble.js"></script>
     <script defer src="./js/Game.js"></script>
     <script defer src="./js/Level.js"></script>
+    <script defer src="./js/Health.js"></script>
+    <script defer src="./js/Handler.js"></script>
     <script defer src="./js/main.js"></script>
   </head>
   <body>
     <div class="wrap">
-      <div>Score: <span id="score">0</span></div>
+      <div class="start-field">
+        <h1 class="title">Bubbles popping</h1>
+        <button id="btn">Go game!</button>
+      </div>
+      <div class="game-field">
+        <div id="score"></div>
+        <div id="health"></div>
+        <div id="level"></div>
+      </div>
+      <div class="finish-field"></div>
     </div>
   </body>
 </html>

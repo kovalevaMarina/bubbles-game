@@ -1,14 +1,17 @@
 class ControlBubble {
-  constructor(level) {
+  constructor(level, health, game) {
     this.level = level;
-    this.size = 100;
-    this.speed = 5;
+    this.health = health;
+    this.game = game;
+    this.size = 100 / Number(`1.${this.level.createLevel()}`);
+    this.speed = 3 * this.level.createLevel();
     this.interval = 50;
   }
 
   init() {
     this.generateBubble();
     this.moveBubble();
+    return this;
   }
 
   generateBubble() {
@@ -17,6 +20,10 @@ class ControlBubble {
     this.bubble.addEventListener("click", () => {
       this.destroyBubble();
       this.level.addScore();
+      this.level.maybeAddLevel();
+      if (this.level.score === 40) {
+        this.game.gameOver(true);
+      }
     });
   }
 
@@ -26,6 +33,7 @@ class ControlBubble {
 
   destroyBubble() {
     this.bubble.remove();
+    clearInterval(this.moveInterval);
     delete this;
   }
 
@@ -36,6 +44,11 @@ class ControlBubble {
       this.bubble.style.top = `${y}px`;
       if (y > window.innerHeight - this.size) {
         clearInterval(this.moveInterval);
+        this.health.removeHealth();
+        if (this.health.numberHealth === 0) {
+          this.game.gameOver(false);
+          return;
+        }
         this.destroyBubble();
       }
     }, this.interval);

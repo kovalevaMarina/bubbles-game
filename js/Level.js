@@ -1,21 +1,29 @@
 class Level {
   constructor() {
-    this.number = 1;
+    this.numberLvl = 1;
     this.score = 0;
-  }
-
-  initScore() {
-    this.createScore();
-    this.addScore();
   }
 
   createScore() {
     this.scoreElem = document.getElementById("score");
-    this.scoreElem.innerHTML = this.score;
+    this.scoreElem.innerHTML = `Score: ${this.score}`;
   }
 
   addScore() {
     this.score++;
-    this.scoreElem.innerHTML = this.score;
+    this.scoreElem.innerHTML = `Score: ${this.score}`;
+  }
+
+  createLevel() {
+    this.levelElem = document.getElementById("level");
+    this.levelElem.innerHTML = `Level: ${this.numberLvl}`;
+    return this.numberLvl;
+  }
+
+  maybeAddLevel() {
+    if (this.score % 10 === 0) {
+      this.numberLvl++;
+      this.levelElem.innerHTML = `Level: ${this.numberLvl}`;
+    }
   }
 }
